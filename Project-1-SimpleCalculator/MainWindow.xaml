@@ -1,0 +1,57 @@
+﻿<Window x:Class="Project_1_SimpleCalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_1_SimpleCalculator" 
+        xmlns:usercontrols="clr-namespace:Project_1_SimpleCalculator.Views.UserControls"
+        mc:Ignorable="d"
+        Title="Project-1-SimpleCalculator" Height="550" Width="400">
+    <Grid Background="LightGreen">
+
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+
+        <!--Screen Space-->
+        <usercontrols:UserScreen/>
+
+        <!--Number or Action Space-->
+        <Grid Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="25*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Grid row for numbers-->
+            <usercontrols:NumberRow Grid.Row="0" Grid.Column="0" FirstNumber="1" SecondNumber="2" ThirdNumber="3" FontSize="20"/>
+            <usercontrols:NumberRow Grid.Row="1" Grid.Column="0" FirstNumber="4" SecondNumber="5" ThirdNumber="6" FontSize="20"/>
+            <usercontrols:NumberRow Grid.Row="2" Grid.Column="0" FirstNumber="7" SecondNumber="8" ThirdNumber="9" FontSize="20"/>
+            <usercontrols:NumberRow Grid.Row="3" Grid.Column="0" FirstNumber="-1" SecondNumber="0" ThirdNumber="-1" FontSize="20"/>
+
+            <!--Grid rows for actions-->
+            <usercontrols:ActionRow Grid.Row="0" Grid.Column="1" Action="+" FontSize="20"/>
+            <usercontrols:ActionRow Grid.Row="1" Grid.Column="1" Action="-" FontSize="20"/>
+            <usercontrols:ActionRow Grid.Row="2" Grid.Column="1" Action="/" FontSize="20"/>
+            <usercontrols:ActionRow Grid.Row="3" Grid.Column="1" Action="*" FontSize="20"/>
+
+        </Grid>
+
+        <!--Final or Edit Actios Space-->
+        <usercontrols:ActionRow Grid.Row="2" Width="200" Height="50" Action="=" FontSize="20"/>
+        <usercontrols:ActionRow Grid.Row="2" Width="200" Height="50" Action="=" FontSize="20"/>
+
+    </Grid>
+</Window>
