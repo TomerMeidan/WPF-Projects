@@ -31,7 +31,7 @@ namespace Project_1_SimpleCalculator
             set { _action = value; }
         }
 
-        private bool actionPressed = false;
+        private bool firstNumberAndActionPressed = false;
         private bool calculationHappened = false;
         private bool firstTimeB = true;
         private bool firstTimeA = true;
@@ -45,7 +45,7 @@ namespace Project_1_SimpleCalculator
         {
             Button numberButtonPressed = (Button)sender;
 
-            if (!actionPressed)
+            if (!firstNumberAndActionPressed)
             {
                 // Calculation happened
                 if (calculationHappened && !firstTimeA)
@@ -83,33 +83,16 @@ namespace Project_1_SimpleCalculator
             switch (actionButtonPressed.Content)
             {
                 case "+":
-                    // Add second actino press after B selected
-                    Action = "+";
-                    actionPressed = true;
-                    tbDisplay1.Text = $"{A} {Action}";
-                    firstTimeA = false;
-
+                    chooseAction("+");
                     break;
                 case "-":
-                    // Add second actino press after B selected
-                    Action = "-";
-                    actionPressed = true;
-                    tbDisplay1.Text = $"{A} {Action}";
-                    firstTimeA = false;
+                    chooseAction("-");
                     break;
                 case "*":
-                    // Add second actino press after B selected
-                    Action = "*";
-                    actionPressed = true;
-                    tbDisplay1.Text = $"{A} {Action}";
-                    firstTimeA = false;
+                    chooseAction("*");
                     break;
                 case "/":
-                    // Add second actino press after B selected
-                    Action = "/";
-                    actionPressed = true;
-                    tbDisplay1.Text = $"{A} {Action}";
-                    firstTimeA = false;
+                    chooseAction("/");
                     break;
                 case "=":
                     if (Calculate())
@@ -117,13 +100,12 @@ namespace Project_1_SimpleCalculator
                         tbDisplay1.Text = $"{A} {Action} {B} =";
                         tbDisplay2.Text = $"{C}";
                         A = $"{C}";
-                        actionPressed = false;
+                        firstNumberAndActionPressed = false;
                         calculationHappened = true;
                         firstTimeB = false;
                     }
                     else
                     {
-                        // Clear displays and reset variables
                         ResetParameters();
                     }
 
@@ -138,9 +120,17 @@ namespace Project_1_SimpleCalculator
 
         }
 
+        private void chooseAction(string action)
+        {
+            Action = action;
+            firstNumberAndActionPressed = true;
+            tbDisplay1.Text = $"{A} {Action}";
+            firstTimeA = false;
+        }
+
         private void ResetParameters()
         {
-            actionPressed = false;
+            firstNumberAndActionPressed = false;
             calculationHappened = false;
             firstTimeB = true;
             firstTimeA = true;

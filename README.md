@@ -4,7 +4,7 @@ Welcome to my WPF Projects Repository! This repository contains a series of proj
 
 ## Project Stages
 
-- [ ] **Stage 1: Introduction to WPF - Simple Calculator (Working on currently)**
+- [X] **Stage 1: Introduction to WPF - Simple Calculator (DONE)**
 - [ ] **Stage 2: Basic Concepts - Personal Contacts Manager**
 - [ ] **Stage 3: Intermediate Concepts - To-Do List Application**
 - [ ] **Stage 4: Data Binding and MVVM - Expense Tracker**
