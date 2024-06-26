@@ -4,6 +4,7 @@ using System.Windows.Controls;
 
 namespace Project_1_SimpleCalculator
 {
+
     public partial class MainWindow : Window
     {
         private string _a = "";
@@ -146,23 +147,25 @@ namespace Project_1_SimpleCalculator
             switch (Action)
             {
                 case "+":
-                    C = Int32.Parse("0" + A) + Int32.Parse("0" + B);
+                    C = Int32.Parse(A) + Int32.Parse(B);
                     break;
                 case "-":
-                    C = Int32.Parse("0" + A) - Int32.Parse("0" + B);
+                    C = Int32.Parse(A) - Int32.Parse(B);
                     break;
                 case "*":
-                    C = Int32.Parse("0" + A) * Int32.Parse("0" + B);
+                    C = Int32.Parse(A) * Int32.Parse(B);
                     break;
                 case "/":
-                    if (Int32.Parse("0" + B) == 0)
+                    if (Int32.Parse(B) == 0)
                     {
                         MessageBox.Show("You cannot divide by zero!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                         return false;
                     }
-                    C = Int32.Parse("0" + A) / Int32.Parse("0" + B);
+                    C = Int32.Parse(A) / Int32.Parse(B);
                     break;
                 default:
+                    C = Int32.Parse(A);
+                    chooseAction("");
                     break;
             }
 
